@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <!--COPY THE HEAD!!!!!-->
+	    <title>APP1</title>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height"> <!--Proper page rendering-->  
+		<link type="text.css" rel="stylesheet" href="style.css" />
+		<script src="https://code.jquery.com/jquery-2.1.4.js"></script><!--jQuery Core-->
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script><!--jQuery UI-->
+		<style>
+		    @import url(style.css)
+		</style>
+		<script type="text/javascript">
+		    $(document).ready(function(){
+			    $("#tabs").tabs({show: 'fade', hide: 'fade'});
+				$("#help-container").tabs({show: 'fade', hide: 'fade'});
+				$("#X").click(function(){
+				    window.close();
+					document.write("<h1 style='text-align: center;'><b>Your session has ended.</b></h1>");
+				});
+				$("#R").click(function(){
+				    location.reload();
+				});
+				var month = new Array();
+				month[0] = "January";
+				month[1] = "February";
+				month[2] = "March";
+				month[3] = "April";
+				month[4] = "May";
+				month[5] = "June";
+				month[6] = "July";
+				month[7] = "August";
+				month[8] = "September";
+				month[9] = "October";
+				month[10] = "November";
+				month[11] = "December";
+				var day = new Array();
+				day[0] = "Sunday";
+				day[1] = "Monday";
+				day[2] = "Tuesday";
+				day[3] = "Wednesday";
+				day[4] = "Thursday";
+				day[5] = "Friday";
+				day[6] = "Saturday";
+				$("#date").append("The current date is: " + day[new Date().getDay()] + " " + month[new Date().getMonth()] + " " + new Date().getDate() + ", " + new Date().getFullYear());
+				/*Calculator bit*/
+				$("#1").click(function(){	
+					$('#display').val($('#display').val() + '1');
+				});
+				$("#2").click(function(){
+					 $('#display').val($('#display').val() + '2');
+				});
+				$("#3").click(function(){
+					 $('#display').val($('#display').val() + '3');
+				});
+				$("#4").click(function(){
+		    	    $('#display').val($('#display').val() + '4');
+				});
+				$("#5").click(function(){
+					$('#display').val($('#display').val() + '5');
+				});
+				$("#6").click(function(){
+					$('#display').val($('#display').val() + '6');
+				});
+				$("#7").click(function(){ 
+					$('#display').val($('#display').val() + '7');
+				});
+				$("#8").click(function(){
+					$('#display').val($('#display').val() + '8');
+				});
+				$("#9").click(function(){
+					$('#display').val($('#display').val() + '9');
+				});
+				$("#0").click(function(){
+					$('#display').val($('#display').val() + '0');
+				});
+				$("#plus").click(function(){
+					$('#display').val($('#display').val() + ' + ');
+				});
+				$("#minus").click(function(){
+					$('#display').val($('#display').val() + ' - ');
+				});
+				$("#multiply").click(function(){
+					$('#display').val($('#display').val() + ' * ');
+				});
+				$("#divide").click(function(){
+					$('#display').val($('#display').val() + ' / ');
+				});
+				$("#decimal").click(function(){
+					$('#display').val($('#display').val() + '.');
+				});
+				$("#modulo").click(function(){
+					$('#display').val($('#display').val() + ' % ');
+				});
+				$("#left").click(function(){
+					$('#display').val($('#display').val() + '(');
+				});
+				$("#right").click(function(){
+					$('#display').val($('#display').val() + ')');
+				});
+        	    $("#sin").click(function(){
+    	            $('#display').val("Math.sin(" + $('#display').val() + ")");
+	            });
+            	$("#cos").click(function(){
+        	        $('#display').val("Math.cos(" + $('#display').val() + ")");
+    	        });
+	            $("#tan").click(function(){
+            	    $('#display').val("Math.tan(" + $('#display').val() + ")");
+        	    });
+    	        $("#asin").click(function(){
+            	    $('#display').val("Math.asin(" + $('#display').val() + ")");
+          		})	;
+            	$("#acos").click(function(){
+        	        $('#display').val("Math.acos(" + $('#display').val() + ")");
+    	        });
+	            $("#atan").click(function(){
+            	    $('#display').val("Math.atan(" + $('#display').val() + ")");
+        	    });
+     	       $("#log").click(function(){
+                	$('#display').val("Math.log(" + $('#display').val() + ")");
+            	});
+        	    $("#sqrt").click(function(){
+    	            $('#display').val("Math.sqrt(" + $('#display').val() + ")");
+	            });
+            	$("#exp").click(function(){
+        	        $('#display').val("Math.exp(" + $('#display').val() + ")");
+    	        });
+	            $("#abs").click(function(){
+                	$('#display').val("Math.abs(" + $('#display').val() + ")");
+            	});
+        	    $("#ceil").click(function(){
+    	            $('#display').val("Math.ceil(" + $('#display').val() + ")");
+	            });
+           	 	$("#floor").click(function(){
+                	$('#display').val("Math.floor(" + $('#display').val() + ")");
+            	});
+            	$("#E").click(function(){
+        	        $('#display').val($('#display').val() + " Math.E");
+    	        });
+				$("#ln2").click(function(){
+                	$('#display').val($('#display').val() + " Math.LN2");
+            	});
+	            $("#ln10").click(function(){
+                	$('#display').val($('#display').val() + " Math.LN10");
+            	});
+        	    $("#pi").click(function(){
+    	            $('#display').val($('#display').val() + " Math.PI");
+	            });
+				$("#equal").click(function(){
+					/*EVALUATES A STRING*/
+					var z = $("#display").val(eval($("#display").val()));
+					console.log(z);
+					$("#display").append(z);
+				});
+				$("#clear").click(function(){
+					document.getElementById("display").value = "";
+				});
+				/*Other app functions below*/
+				$("#urlsub").click(function(){
+				    $(".customurl").remove();
+					var e = document.getElementById("url").value;
+					$("#website").append("<iframe class='customurl' src=" + e + "></iframe>");
+				});
+				$("#delframe").click(function(){
+				    $(".customurl").remove();
+				});
+				$("#cleartext").click(function(){
+				    document.getElementById("url").value = "";
+				});
+				$("#subcss").click(function(){
+				    var f = document.getElementById("csselem").value;
+					var g = document.getElementById("cssparams").value;
+					var h = document.getElementById("csstext").value;
+					$(f).css(g, h);
+					alert("The element '" + f + "''s property '" + g + "' has been changed to '" + h + "'.")
+				});
+			});
+		</script>
+	</head>
+	<body>
+	    <div class="buttonstop" id="X">
+		    <p>X</p>
+		</div>
+		<div class="buttonstop" id="R">
+		    <p>R</p>
+		</div>
+		<h1>APP1</h1>
+		<h4 id="date"></h4>
+		<div id="tabs">
+		    <ul  class="tabsul">
+			    <li class="disp"><a class = "navs" href="#home">HOMEPAGE</a></li>
+				<li class="disp"><a class = "navs" href="#calc">CALCULATOR</a></li>
+				<li class="disp"><a class = "navs" href="#website">URL</a></li>
+				<li class="disp"><a class = "navs" href="#cipher">CIPHER</a></li>
+				<li class="disp"><a class = "navs" href="#help">HELP</a></li>
+				<li class="disp"><a class = "navs" href="#cssprops">CSS SETTINGS</a></li>
+			</ul>
+			<div id="home">
+			    <h2>HOMEPAGE</h2>
+			</div>
+			<div id="calc">
+			    <h2>CALCULATOR</h2>
+				<div id="numbers">
+				    <div id="1" class="num">1</div>
+					<div id="2" class="num">2</div>
+					<div id="3" class="num">3</div>
+					<div id="4" class="num">4</div>
+					<div id="5" class="num">5</div>
+					<div id="6" class="num">6</div>
+					<div id="7" class="num">7</div>
+					<div id="8" class="num">8</div>
+					<div id="9" class="num">9</div>
+					<div id="0" class="num">0</div>
+				</div>
+				<div id="operations">
+				    <div id="plus" class="op">+</div>
+					<div id="minus" class="op">-</div>
+					<div id="multiply" class="op">*</div>
+					<div id="divide" class="op">/</div>
+					<div id="decimal" class="op">.</div>
+					<div id="modulo" class="op">%</div>
+					<div id="left" class="op">(</div>
+					<div id="right" class="op">)</div>
+				</div>
+				<div id="scientific">
+				    <div id="sin" class="sci">sin</div>
+					<div id="cos" class="sci">cos</div>
+					<div id="tan" class="sci">tan</div>
+					<div id="asin" class="sci">asin</div>
+					<div id="acos" class="sci">acos</div>
+					<div id="atan" class="sci">atan</div>
+					<div id="log" class="sci">log</div>
+					<div id="sqrt" class="sci">√</div>
+					<div id="exp" class="sci">exp</div>
+					<div id="abs" class="sci">abs</div>
+					<div id="ceil" class="sci">ceil</div>
+					<div id="flr" class="sci">flr</div>
+					<div id="E" class="sci">E</div>
+					<div id="ln2" class="sci">ln2</div>
+					<div id="ln10" class="sci">ln10</div>
+					<div id="pi" class="sci">π</div>
+				</div>
+				<input type="text" id="display" value="Clear to reset."/>
+				<div id="equal" class="botops">=</div>
+				<div id="clear" class="botops">CLEAR</div>
+			</div>
+			<div id="website">
+			    <h2>URL Viewer</h2>
+				<div>
+					<input style="width: 100%; text-align: center; font-size: 30px;" type="text" id="url" value="Replace me with the URL you want to see."/>
+					<div id="delframe" style="background-color: red; text-align: center; width: 85%; float: left; font-size: 30px;">Delete iframe</div>
+					<div id="cleartext" style="background-color: #AA0000; text-align: center; width: 15%; color: white; float: right; font-size: 30px;">Clear</div>
+					<h3 id="urlsub" style="background-color: #B29600; color: white;">Submit</h3>
+				</div>
+				<!--IFRAME GOES HERE-->
+			</div>
+			<div id="cipher">
+			    <h2>CIPHER</h2>
+				<input type="text" style="width: 100%; height: 3em; word-wrap: break-word;" value="Place your message here" id="message"/>
+				<input type="text" style="width: 100%; height: 3em; word-wrap: break-word;" value="Your message shall appear here." id="result"/>
+				<div>
+				    <div id="encrypt" style="text-align: center;">Encrypt</div>
+					<div id="decrypt" style="text-align: center;">Decrypt</div>
+				</div>
+			</div>
+			<!--Make sure that this always comes last!-->
+			<div id="help">
+			    <h2>HELP CENTER</h2>
+				<h3>What do you need help in?</h3>
+				<div id="help-container" style="width: 92%; height: 400px; overflow-y: auto; margin-left: auto; margin-right: auto; background: linear-gradient(#00FF00, #FFFF00, orange); font-size: 20px;">
+				    <ul  class="tabsul">
+						<li class="disp"><a class = "navs" href="#calchelp">CALCULATOR</a></li>
+						<li class="disp"><a class = "navs" href="#urlhelp">URL</a></li>
+						<li class="disp"><a class = "navs" href="#cipherhelp">CIPHER</a></li>
+						<li class="disp"><a class = "navs" href="#csshelp">CSS SETTINGS</a></li>
+			        </ul>
+					<div id="calchelp">
+					    <h3>Calculator</h3>
+						<ul>
+						    <li>Not 4, but <u>5</u> Function</li>
+							<ol>
+							    <li>First, in order to actually use the calculator, you have to first identify the buttons.</li>
+								<li>Before you get into any calculation, make sure that you hit the "Clear" button, because only then will the calculator be reset and you can do whatever you want.</li>
+								<li>On the middle left, you will see that the numbers are positioned for you.</li>
+								<li>Click "1". You should see a "1" appear in the box.</li>
+								<li>In the middle top right, you will see a dark green box where you have your plus, minus, multiply, and divide functions.</li>
+								<li>Click a button. It will appear in the input box.</li>
+								<li>Then click another number, and then hit the = button. You should see the result of the expression in the input box.</li>
+								<li>You can use decimals in the calculator, by clicking the "." button</li>
+								<li>Note: The % button is not a percent sign, it is a modulus. This means that the answer will be the remainder of <i>x</i> divided by <i>y</i>.</li>
+								<li>You can string expressions together through parentheses.</li>
+							</ol>
+							<li>Scientific Functions</li>
+							<ul>
+							    <li>Make sure that with these functions, you put the number or expression FIRST before putting these functions down, because it wraps the parentheses around the expression.</li>
+								<li>Sin(x) returns the sine function.</li>
+								<li>Cos(x) returns the cosine function.</li>
+								<li>Tan(x) returns the tangent function.</li>
+								<li>Asin(x) returns the arc sine function.</li>
+								<li>Acos(x) returns the arc cosine function.</li>
+								<li>Atan(x) returns the arc tangent function.</li>
+								<li>Log(x) returns the logarithmic function.</li>
+								<li>√(x) returns the square root function.</li>
+								<li>Exp(x) returns the function e^x power.</li>
+								<li>Abs gives the absolute value of an expression.</li>
+								<li>Ceil rounds up the number.</li>
+								<li>Flr rounds down the number.</li>
+								<li>E gives the constant e.</li>
+								<li>LN2 gives the logarithm base 2 of E.</li>
+								<li>LN10 gives the logarithm base 10 of E.</li>
+								<li>π gives the constant pi.</li>
+							</ul>
+						</ul>
+					</div>
+					<div id="urlhelp">
+					    <h3>URL</h3>
+						<ol>
+						    <li>You will see an input box that says, "Replace me with the URL you want to see."</li>
+							<li>There are two buttons underneath it, one that says, "Delete iframe" and the other which says, "Clear". Beneath that there is a button that says "Submit".</li>
+							<li>Type in any URL you want (make sure it has the "http://" in front of the site name.</li>
+							<li>The Submit button displays an "iframe" which displays the website. The Clear button will empty out the input box. The Delete button will clear the iframe.</li>
+						</ol>
+					</div>
+					<div id="cipherhelp">
+					    <h3>Cipher</h3>
+						<ul>
+						    <li>Please get back soon, it will be updated eventually!!!</li>
+						</ul>
+					</div>
+					<div id="csshelp">
+					    <h3>CSS Settings</h3>
+						<ul>
+						    <li>NOTE: you must have some knowledge of CSS before continuing, otherwise the layout can change unpredictably.</li>
+							<li>For example, in the typical CSS syntax, you have: ".selector{propertytochange: parameter}"</li>
+							<li>In the first input box, type in the element needed to be altered.</li>
+							<li>The second box is where you type in the parameter of the element to be changed.</li>
+							<li>The third box is where you type in the new value.</li>
+						</ul>
+					</div>
+				</div>
+				<p><span style="font-size: 50px; color: red; text-align: center; background-color: white; word-wrap: break-word;"><u>If something goes <b>wrong</b>, click the "R" button to refresh or the "X" button to exit.</u></span></p>
+			</div>
+			<div id="cssprops">
+			    <h2>CHANGE CSS PROPERTIES</h2>
+				<input type = "text"  id="csselem" style="font-size: 30px; text-align: center; width: 25%; display: inline-block;" value="Element to change."/><span style="font-size:50px;">{</span>
+				<p style="margin-left: 10%;"><input type = "text"  id="cssparams" style="font-size: 30px; text-align: center; width: 31%; display: inline-block;" value="Property to change"/><span style="font-size:50px;">:</span><input type = "text"  id="csstext" style="font-size: 30px; text-align: center; width: 31%; display: inline-block;" value="What to change"/><span style="font-size:50px;">;</span></p>
+				<p><span style="font-size:50px;">}</span></p>
+				<h3 id="subcss" style="background: linear-gradient(to right, #FFFF23, #00ADDF);">Submit</h3>
+			</div>
+		</div>
+	</body>
+</html>
